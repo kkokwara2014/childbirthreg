@@ -66,6 +66,7 @@
                                             <th>Mother</th>
                                             
                                             <th>Registered By</th>
+                                            <th>Print</th>
 
                                             <th>Edit</th>
                                             <th>Delete</th>
@@ -90,7 +91,7 @@
                                             {{-- <td>{{$birthreg->user->lastname.', '.$birthreg->user->firstname.' - '.$birthreg->user->identitynumber}} --}}
                                             </td>
                                             <td style="text-align: center">
-                                                <a href="#"><span
+                                            <a href="{{route('print',$birthreg->id)}}"><span
                                                         class="fa fa-print fa-2x text-primary"></span></a>
                                             </td>
 
@@ -136,6 +137,7 @@
                                                 <th>Mother</th>
                                                 
                                                 <th>Registered By</th>
+                                                <th>Print</th>
     
                                                 <th>Edit</th>
                                                 <th>Delete</th>
