@@ -11,8 +11,9 @@
     <body>
         <tbody class="table">
             <div>
-            <img src="{{asset('image/logo.png')}}" alt="" class="logo">
-            <address></address>
+            {{-- <img src="{{asset('image/logo.png')}}" alt="" class="logo"> --}}
+            <address>303 Afikpo Road</address>
+            <br> <br>
             </div>
             <caption>Birth Registration Certificate</caption>
         <tbody>
