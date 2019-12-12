@@ -1,8 +1,8 @@
 <footer class="main-footer">
   <div class="pull-right hidden-xs">
-    {{-- Powered by Done-Right Systems Inc. --}}
+    Powered by Dominic Nwafor - 2017/HND//CS.
   </div>
-  <strong>Copyright &copy; 2019 courseregsys</strong> All rights
+  <strong>Copyright &copy; 2019 childbirthreg</strong> All rights
   reserved.
 </footer>
 

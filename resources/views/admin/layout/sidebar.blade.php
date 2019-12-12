@@ -31,17 +31,18 @@
       {{-- <li><a href="{{route('comment.index')}}"><i class="fa fa-comment-o"></i> Comments</a></li> --}}
 
       {{-- only for the Admin --}}
-      @if (Auth::user()->role->id==1)
-      <li><a href="{{route('department.index')}}"><i class="fa fa-university"></i> Department</a></li>
+      {{-- @if (Auth::user()->role->id==1) --}}
+      {{-- <li><a href="{{route('department.index')}}"><i class="fa fa-university"></i> Department</a></li> --}}
       {{-- <li><a href="{{route('classlevel.index')}}"><i class="fa fa-th"></i> Class Level</a></li> --}}
-      <li><a href="{{route('course.index')}}"><i class="fa fa-file-text-o"></i> Courses</a></li>
-      @endif
+      {{-- <li><a href="{{route('course.index')}}"><i class="fa fa-file-text-o"></i> Courses</a></li> --}}
+      {{-- @endif --}}
 
-      @if (Auth::user()->role->id==1||Auth::user()->role->id==3)
+      {{-- @if (Auth::user()->role->id==1||Auth::user()->role->id==3) --}}
 
-      <li><a href="{{route('student.index')}}"><i class="fa fa-users"></i> Students</a></li>
+      <li><a href="{{route('birthreg.index')}}"><i class="fa fa-tags"></i> Birth Registration</a></li>
+      <li><a href="{{route('nurse.index')}}"><i class="fa fa-users"></i> Nurses</a></li>
 
-      @endif
+      {{-- @endif --}}
 
       {{-- Only Admin and Project Coordinator --}}
       {{-- @if (Auth::user()->role->id==1||Auth::user()->role->id==2) --}}
@@ -52,9 +53,9 @@
 
 
       {{-- Only Admin and Lecturer --}}
-      @if (Auth::user()->role->id==1||Auth::user()->role->id==2)
+      {{-- @if (Auth::user()->role->id==1||Auth::user()->role->id==2)
       <li><a href="{{route('lecturer.index')}}"><i class="fa fa-graduation-cap"></i> Lecturers</a></li>
-      @endif
+      @endif --}}
 
 
       {{-- Only for Admin --}}

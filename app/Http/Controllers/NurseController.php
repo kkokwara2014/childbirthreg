@@ -2,7 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Stateoforigin;
+use App\User;
 use Illuminate\Http\Request;
+
+use Auth;
+
 
 class NurseController extends Controller
 {
@@ -13,7 +18,12 @@ class NurseController extends Controller
      */
     public function index()
     {
-        //
+        $user = Auth::user();
+        $lecturers = User::where('role_id', '2')->orderBy('created_at','desc')->get();
+        $stateoforigins = Stateoforigin::orderBy('name', 'asc')->get();
+
+
+        return view('admin.nurse.index', compact('user', 'lecturers', 'stateoforigins'));
     }
 
     /**
