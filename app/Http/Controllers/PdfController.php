@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use PDF;
+// use PDF;
+use Barryvdh\DomPDF\Facade as PDF;
 use App\Childreg;
 
 class PdfController extends Controller
