@@ -8,28 +8,60 @@
 <div class="row">
     <!-- Left col -->
     <section class="col-lg-12 connectedSortable">
-        <a href="{{ route('supervisor.index') }}" class="btn btn-success">
-           <span class="fa fa-eye"></span> All Nurses
+        <a href="{{ route('nurse.index') }}" class="btn btn-success">
+            <span class="fa fa-eye"></span> All Nurses
         </a>
         <br><br>
 
         <div class="row">
-            <div class="col-md-5">
+            <div class="col-md-6">
 
                 <div class="box">
                     <!-- /.box-header -->
                     <div class="box-body">
-                        <form action="{{ route('supervisor.update',$supervisors->id) }}" method="post">
+                        <form action="{{ route('nurse.update',$nurses->id) }}" method="post">
                             {{ csrf_field() }}
                             {{method_field('PUT')}}
 
                             <div>
-                                <label for="name">Name</label>
-                                <input type="text" class="form-control" name="name" value="{{$supervisors->name}}">
+                                <label for="name">Surname</label>
+                                <input type="text" class="form-control" name="lastname" value="{{$nurses->lastname}}">
                             </div>
+                            <div>
+                                <label for="name">First Name</label>
+                                <input type="text" class="form-control" name="firstname" value="{{$nurses->firstname}}">
+                            </div>
+                            <div>
+                                <label for="name">Othername(s)</label>
+                                <input type="text" class="form-control" name="othername" value="{{$nurses->othername}}">
+                            </div>
+                            <div>
+                                <label for="name">Email</label>
+                                <input type="email" class="form-control" name="email" value="{{$nurses->email}}">
+                            </div>
+                            <div>
+                                <label for="name">Phone</label>
+                                <input type="tel" class="form-control" name="phone" value="{{$nurses->phone}}"
+                                    maxlength="11">
+                            </div>
+                            <div>
+                                <label for="name">Password</label>
+                                <input id="password" type="password" class="form-control" name="password"
+                                placeholder="Password">
+
+
+                            </div>
+
+                            <div>
+                                <label for="name">Repeat Password</label>
+                                <input id="password-confirm" type="password" class="form-control"
+                                    name="password_confirmation" placeholder="Repeat Password">
+                            </div>
+
+                            <input type="hidden" name="role_id" value="2">
                             <br>
                             <button type="submit" class="btn btn-primary">Update</button>
-                            <a href="{{ route('supervisor.index') }}" class="btn btn-default">Cancel</a>
+                            <a href="{{ route('nurse.index') }}" class="btn btn-default">Cancel</a>
 
                     </div>
                     </form>

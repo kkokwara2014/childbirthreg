@@ -22,7 +22,7 @@
         <!-- small box -->
         <div class="small-box bg-fuchsia">
           <div class="inner">
-          <h3>9</h3>
+          <h3>{{$nurseCount}}</h3>
   
             <p>Nurses</p>
           </div>
@@ -37,7 +37,7 @@
         <!-- small box -->
         <div class="small-box bg-maroon-active">
           <div class="inner">
-            <h3>1</h3>
+          <h3>{{$adminCount}}</h3>
   
             <p>Admins</p>
           </div>

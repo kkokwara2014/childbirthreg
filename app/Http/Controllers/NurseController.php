@@ -88,7 +88,12 @@ class NurseController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = Auth::user();
+        $nurses = User::where('id', $id)->first();
+        $stateoforigins = Stateoforigin::orderBy('name', 'asc')->get();
+
+
+        return view('admin.nurse.edit', compact('user', 'nurses', 'stateoforigins'));
     }
 
     /**
@@ -100,7 +105,29 @@ class NurseController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'lastname' => 'required|string',
+            'firstname' => 'required|string',
+            'email' => 'required|email|unique:users',
+            'phone' => 'required',
+            'password' => 'required|string|min:6|confirmed',
+        ]);
+
+        $user = User::find($id);
+        $user->lastname = $request->lastname;
+        $user->firstname = $request->firstname;
+        $user->othername = $request->othername;
+        
+        $user->email = $request->email;
+        $user->phone = $request->phone;
+       
+        $user->password = bcrypt($request->password);
+        $user->role_id = $request->role_id;
+        
+
+        $user->save();
+
+        return redirect(route('nurse.index'));
     }
 
     /**
@@ -111,6 +138,7 @@ class NurseController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $nurses=User::where('id',$id)->delete();
+        return back();
     }
 }

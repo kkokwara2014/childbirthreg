@@ -48,9 +48,11 @@ class AdminController extends Controller
     {
         $user = Auth::user();
         $admins = User::where('role_id', '1')->orderBy('created_at', 'desc')->get();
+        $nurseCount = User::where('role_id', '2')->count();
+        $adminCount = User::where('role_id', '1')->count();
         $stateoforigins = Stateoforigin::orderBy('name', 'asc')->get();
 
-        return view('admin.admins.index', compact('user', 'admins', 'stateoforigins'));
+        return view('admin.admins.index', compact('user', 'admins', 'stateoforigins','nurseCount','adminCount'));
     }
 
     /**
