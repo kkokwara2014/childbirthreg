@@ -91,7 +91,7 @@
                                             {{-- <td>{{$birthreg->user->lastname.', '.$birthreg->user->firstname.' - '.$birthreg->user->identitynumber}} --}}
                                             </td>
                                             <td style="text-align: center">
-                                            <a href="{{route('print',$birthreg->id)}}"><span
+                                            <a href="{{url('print/certificate/'.$birthreg->certnumber)}}"><span
                                                         class="fa fa-print fa-2x text-primary"></span></a>
                                             </td>
 

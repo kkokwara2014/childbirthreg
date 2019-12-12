@@ -14,6 +14,6 @@ class PdfController extends Controller
         $pdf=PDF::loadView('admin.birthreg.cert',['birthreg'=>$birthreg])->setPaper('a4','portrait');
         $fileName=$birthreg->certnumber;
 
-        return $pdf->stream($fileName);
+        return $pdf->stream($fileName.'.pdf');
     }
 }

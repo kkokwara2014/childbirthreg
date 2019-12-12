@@ -19,9 +19,9 @@
             <hr>
             <tr>
                 <td>
-                    <div>Cert # {{$birthreg->certnumber}}</div>
-                    <div>Full Name : {{$birthreg->lastname.', '.$birthreg->firstname.' '.$birthreg->othername}}</div>
-                    <div>Date of Birth : {{$birthreg->dob}}</div>
+                    Cert # {{$birthreg->certnumber}}
+                    {{-- <div>Full Name : {{$birthreg->lastname.', '.$birthreg->firstname.' '.$birthreg->othername}}</div>
+                    <div>Date of Birth : {{$birthreg->dob}}</div> --}}
                     {{-- <div>Cert # {{$birthreg->certnumber}}</div>
                     <div>Cert # {{$birthreg->certnumber}}</div>
                     <div>Cert # {{$birthreg->certnumber}}</div>
