@@ -8,8 +8,8 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-            Edit Course
-            <small>Modify Course</small>
+            Edit Birth Registration
+            <small>Modify Birth Registration</small>
         </h1>
         {{-- <ol class="breadcrumb">
               <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -23,84 +23,103 @@
         <div class="row">
             <!-- Left col -->
             <section class="col-lg-12 connectedSortable">
-                <a href="{{ route('course.index') }}" class="btn btn-success">
-                    <span class="fa fa-eye"></span> All Courses
+                <a href="{{ route('birthreg.index') }}" class="btn btn-success">
+                    <span class="fa fa-eye"></span> All Registered Births
                 </a>
                 <br><br>
 
                 <div class="row">
-                    <div class="col-md-7">
+                    <div class="col-md-9">
 
                         <div class="box">
                             <!-- /.box-header -->
                             <div class="box-body">
-                                <form action="{{ route('course.update',$courses->id) }}" method="post">
+                                <form action="{{ route('birthreg.update',$birthregs->id) }}" method="post">
                                     {{ csrf_field() }}
                                     {{method_field('PUT')}}
-
                                     <div class="form-group">
-                                        <label for="">Course Title <b style="color: red;">*</b></label>
-                                        <input type="text" class="form-control" name="title" value="{{$courses->title}}"
-                                            autofocus>
+                                        <label for="">Certificate #</label>
+                                        <input style="background-color: green; color:white;" type="text" class="form-control" name="certnumber" value="{{$birthregs->certnumber}}"
+                                            readonly>
                                     </div>
-                                    <div class="form-group">
-                                        <label for="">Course code <b style="color: red;">*</b></label>
-                                        <input type="text" class="form-control" name="code" value="{{$courses->code}}">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                                <div class="form-group">
+                                                        <label for="">Last Name <b style="color: red;">*</b> </label>
+                                                        <input type="text" class="form-control" name="lastname" value="{{$birthregs->lastname}}"
+                                                            autofocus>
+                                                    </div>
+                                                <div class="form-group">
+                                                        <label for="">First Name <b style="color: red;">*</b> </label>
+                                                        <input type="text" class="form-control" name="firstname" value="{{$birthregs->firstname}}"
+                                                            autofocus>
+                                                    </div>
+                                                <div class="form-group">
+                                                        <label for="">Othername </label>
+                                                        <input type="text" class="form-control" name="othername" value="{{$birthregs->othername}}"
+                                                            autofocus>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="">Gender </label>
+                                                        <select name="gender" class="form-control">
+                                                            <option selected="disabled">Select Gender</option>
+                                                           
+                                                            <option {{old('gender',$birthregs->gender=="Male"?'selected':'')}}>Male</option>
+                                                            <option {{old('gender',$birthregs->gender=="Female"?'selected':'')}}>Female</option>
+                                                         
+                                                        </select>
+                                                    </div>
+                                                    
+                                                    <div class="form-group">
+                                                        <label for="">Date of Birth</label>
+                                                        <input type="text" class="form-control" id="datepicker" name="dob"
+                                                        value="{{$birthregs->dob}}">
+                                                    </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                                <div class="form-group">
+                                                        <label for="">Place of Birth<b style="color: red;">*</b> </label>
+                                                        <input type="text" class="form-control" name="placeofbirth" value="{{$birthregs->placeofbirth}}"
+                                                            autofocus>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="name">State of Origin</label>
+                                                        <select name="stateoforigin_id" class="form-control">
+                                                            <option selected="disabled">Select State of Origin</option>
+                                                            @foreach ($stateoforigins as $stateoforigin)
+                
+                                                            <option value="{{$stateoforigin->id}}"
+                                                                {{$stateoforigin->id==$birthregs->stateoforigin_id ? 'selected':''}}>
+                                                                {{$stateoforigin->name}}</option>
+                
+                                                            @endforeach
+                                                        </select>
+                                                    </div>
+                                            <div class="form-group">
+                                                    <label for="">Father's Name <b style="color: red;">*</b> </label>
+                                            <input type="text" class="form-control" name="fathername" value="{{$birthregs->fathername}}"
+                                                        autofocus>
+                                                </div>
+                                                <div class="form-group">
+                                                        <label for="">Mother's Name <b style="color: red;">*</b> </label>
+                                                        <input type="text" class="form-control" name="mothername" value="{{$birthregs->mothername}}"
+                                                            autofocus>
+                                                    </div>
+                                        </div>
                                     </div>
-                                    <div class="form-group">
-                                        <label for="">Credit Load</label>
-                                        <input type="text" class="form-control" name="creditload"
-                                            value="{{$courses->creditload}}">
-                                    </div>
+                                        
+                                <input type="hidden" name="user_id" value="{{$birthregs->user_id}}">
 
-                                    <div class="form-group">
-                                        <label for="name">Semester</label>
-                                        <select name="semester_id" class="form-control">
-                                            <option selected="disabled">Select Semester</option>
-                                            @foreach ($semesters as $semester)
+                                    
 
-                                            <option value="{{$semester->id}}"
-                                                {{$semester->id==$courses->semester_id ? 'selected':''}}>
-                                                {{$semester->name}}</option>
-
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="">Acad. Session</label>
-                                        <input type="text" class="form-control" id="datepickeryear" name="acadsession"
-                                            value="{{$courses->acadsession}}">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="name">Department</label>
-                                        <select name="department_id" class="form-control">
-                                            <option selected="disabled">Select Department</option>
-                                            @foreach ($departments as $department)
-
-                                            <option value="{{$department->id}}"
-                                                {{$department->id==$courses->department_id ? 'selected':''}}>
-                                                {{$department->name}}</option>
-
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="name">Lecturer</label>
-                                        <select name="user_id" class="form-control">
-                                            <option selected="disabled">Select Lecturer</option>
-                                            @foreach ($lecturers as $user)
-
-                                            <option value="{{$user->id}}"
-                                                {{$user->id==$courses->user_id ? 'selected':''}}>
-                                                {{$user->lastname.', '.$user->firstname}}</option>
-
-                                            @endforeach
-                                        </select>
-                                    </div>
+                                    
+                                    
+                                    
+                                    
 
                                     <br>
                                     <button type="submit" class="btn btn-primary">Update</button>
-                                    <a href="{{ route('course.index') }}" class="btn btn-default">Cancel</a>
+                                    <a href="{{ route('birthreg.index') }}" class="btn btn-default">Cancel</a>
 
                             </div>
                             </form>

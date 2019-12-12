@@ -1,6 +1,6 @@
 <footer class="main-footer">
   <div class="pull-right hidden-xs">
-    Powered by Dominic Nwafor - 2017/HND//CS.
+    Powered by Dominic Nwafor - 2017/HND/24179/CS.
   </div>
   <strong>Copyright &copy; 2019 childbirthreg</strong> All rights
   reserved.

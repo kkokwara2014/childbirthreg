@@ -58,8 +58,7 @@
                                         <tr>
                                             <th>Cert. #</th>
                                             <th>Child's Name</th>
-                                            <th>First Name</th>
-                                            <th>Othername</th>
+                                            <th>Gender</th>                                            
                                             <th>DOB</th>
                                             <th>Place of Birth</th>
                                             <th>State of Origin</th>
@@ -80,6 +79,7 @@
                                         <tr>
                                             <td>{{$birthreg->certnumber}}</td>
                                             <td>{{$birthreg->lastname.', '.$birthreg->firstname.' '.$birthreg->othername}}</td>
+                                            <td>{{$birthreg->gender}}</td>
                                             <td>{{$birthreg->dob}}</td>
                                             <td>{{$birthreg->placeofbirth}}</td>
                                             <td>{{$birthreg->stateoforigin->name}}</td>
@@ -127,8 +127,8 @@
                                         <tr>
                                                 <th>Cert. #</th>
                                                 <th>Child's Name</th>
-                                                <th>First Name</th>
-                                                <th>Othername</th>
+                                                <th>Gender</th>
+                                                
                                                 <th>DOB</th>
                                                 <th>Place of Birth</th>
                                                 <th>State of Origin</th>
@@ -169,7 +169,7 @@
                                 <div class="modal-body">
                                     <div class="form-group">
                                         <label for="">Certificate #</label>
-                                        <input style="background-color: green; color:white;" type="text" class="form-control" name="certnumber" value="{{'breg'.date('Y').'-'. rand(55000, 99955)}}"
+                                        <input style="background-color: green; color:white;" type="text" class="form-control" name="certnumber" value="{{'breg'.date('Y').'-'. rand(55000998, 99955998)}}"
                                             readonly>
                                     </div>
 
@@ -189,6 +189,16 @@
                                                         <label for="">Othername </label>
                                                         <input type="text" class="form-control" name="othername" placeholder="Othername(s)"
                                                             autofocus>
+                                                    </div>
+                                                <div class="form-group">
+                                                        <label for="">Gender </label>
+                                                        <select name="gender" class="form-control">
+                                                            <option selected="disabled">Select Gender</option>
+                                                           
+                                                            <option>Male</option>
+                                                            <option>Female</option>
+                                                         
+                                                        </select>
                                                     </div>
                                                     
                                                     <div class="form-group">
@@ -224,12 +234,8 @@
                                                     </div>
                                         </div>
                                     </div>
-
-                                    
                                         
                                 <input type="hidden" name="user_id" value="{{Auth::user()->id}}">
-
-
                                     
                                 </div>
                                 <div class="modal-footer">

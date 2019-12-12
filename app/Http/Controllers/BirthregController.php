@@ -17,9 +17,9 @@ class BirthregController extends Controller
     public function index()
     {
         $user = Auth::user();
-        $birthregisters = Childreg::orderBy('created_at','desc')->get();
         $stateoforigins = Stateoforigin::orderBy('name', 'asc')->get();
-
+        
+        $birthregisters = Childreg::orderBy('created_at','desc')->get();
 
         return view('admin.birthreg.index', compact('user', 'birthregisters', 'stateoforigins'));
     }
@@ -49,7 +49,7 @@ class BirthregController extends Controller
             'placeofbirth' => 'required',
             'fathername' => 'required',
             'mothername' => 'required',
-            'stateoforigin' => 'required',
+            'stateoforigin_id' => 'required',
             
         ]);
 
@@ -58,6 +58,7 @@ class BirthregController extends Controller
         $childreg->lastname=$request->lastname;
         $childreg->firstname=$request->firstname;
         $childreg->othername=$request->othername;
+        $childreg->gender=$request->gender;
         $childreg->dob=$request->dob;
         $childreg->placeofbirth=$request->placeofbirth;
         $childreg->fathername=$request->fathername;
@@ -89,7 +90,12 @@ class BirthregController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = Auth::user();
+        $stateoforigins = Stateoforigin::orderBy('name', 'asc')->get();
+        
+        $birthregs = Childreg::where('id',$id)->first();
+
+        return view('admin.birthreg.edit', compact('user', 'birthregs', 'stateoforigins'));
     }
 
     /**
@@ -101,7 +107,33 @@ class BirthregController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'lastname' => 'required|string',
+            'firstname' => 'required|string',
+            'dob' => 'required',
+            'placeofbirth' => 'required',
+            'fathername' => 'required',
+            'mothername' => 'required',
+            'stateoforigin_id' => 'required',
+            
+        ]);
+
+        $childreg=Childreg::find($id);
+        $childreg->certnumber=$request->certnumber;
+        $childreg->lastname=$request->lastname;
+        $childreg->firstname=$request->firstname;
+        $childreg->othername=$request->othername;
+        $childreg->gender=$request->gender;
+        $childreg->dob=$request->dob;
+        $childreg->placeofbirth=$request->placeofbirth;
+        $childreg->fathername=$request->fathername;
+        $childreg->mothername=$request->mothername;
+        $childreg->user_id=$request->user_id;
+        $childreg->stateoforigin_id=$request->stateoforigin_id;
+        
+        $childreg->save();
+
+        return redirect(route('birthreg.index'));
     }
 
     /**

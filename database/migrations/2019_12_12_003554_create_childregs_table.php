@@ -19,6 +19,7 @@ class CreateChildregsTable extends Migration
             $table->string('lastname');
             $table->string('firstname');
             $table->string('othername');
+            $table->string('gender');
             $table->string('dob');
             $table->string('placeofbirth');
             $table->string('fathername');
