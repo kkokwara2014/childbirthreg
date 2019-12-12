@@ -21,6 +21,10 @@ class CreateChildregsTable extends Migration
             $table->string('othername');
             $table->string('dob');
             $table->string('placeofbirth');
+            $table->string('fathername');
+            $table->string('mothername');
+            $table->integer('user_id');
+            $table->integer('stateoforigin_id');
             $table->timestamps();
         });
     }
