@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Childreg;
 use App\Stateoforigin;
 use App\User;
 use Illuminate\Http\Request;
@@ -19,8 +20,11 @@ class AdminController extends Controller
         $user = Auth::user();
 
         $admins=User::where('role_id',1)->get()->count();
+        $nurseCount = User::where('role_id', '2')->count();
+        $adminCount = User::where('role_id', '1')->count();
+        $birthregs=Childreg::count();
                
-        return view('admin.index',compact('user','admins'));
+        return view('admin.index',compact('user','admins','nurseCount','adminCount','birthregs'));
     }
 
     /**

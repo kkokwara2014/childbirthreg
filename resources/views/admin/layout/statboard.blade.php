@@ -8,7 +8,7 @@
         <!-- small box -->
         <div class="small-box bg-aqua">
           <div class="inner">
-          <h3>0</h3>
+          <h3>{{$birthregs}}</h3>
   
             <p>Birth Registration</p>
           </div>
