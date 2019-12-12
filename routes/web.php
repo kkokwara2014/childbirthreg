@@ -58,7 +58,7 @@ if ($timeIt > date('Y-m-d')) {
         
         Route::resource('nurse', 'NurseController');
         Route::resource('birthreg', 'BirthregController');
-        Route::get('print/certificate/{id}', 'PdfController@print')->name('print');
+        Route::get('print/{id}', 'PdfController@print');
 
         Route::get('user/profile', 'UserController@profileimage')->name('user.profile');
         Route::post('user/profile', 'UserController@updateprofileimage')->name('user.profile.update');
