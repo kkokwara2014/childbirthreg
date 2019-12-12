@@ -19,11 +19,11 @@ class NurseController extends Controller
     public function index()
     {
         $user = Auth::user();
-        $lecturers = User::where('role_id', '2')->orderBy('created_at','desc')->get();
+        $nurses = User::where('role_id', '2')->orderBy('created_at','desc')->get();
         $stateoforigins = Stateoforigin::orderBy('name', 'asc')->get();
 
 
-        return view('admin.nurse.index', compact('user', 'lecturers', 'stateoforigins'));
+        return view('admin.nurse.index', compact('user', 'nurses', 'stateoforigins'));
     }
 
     /**
@@ -44,7 +44,29 @@ class NurseController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'lastname' => 'required|string',
+            'firstname' => 'required|string',
+            'email' => 'required|email|unique:users',
+            'phone' => 'required',
+            'password' => 'required|string|min:6|confirmed',
+        ]);
+
+        $user = new User;
+        $user->lastname = $request->lastname;
+        $user->firstname = $request->firstname;
+        $user->othername = $request->othername;
+        
+        $user->email = $request->email;
+        $user->phone = $request->phone;
+       
+        $user->password = bcrypt($request->password);
+        $user->role_id = $request->role_id;
+        
+
+        $user->save();
+
+        return redirect(route('nurse.index'))->with('success', 'New Nurse has been added successfully!');
     }
 
     /**
