@@ -89,10 +89,10 @@
                                             <td>{{$birthreg->user->lastname.', '.$birthreg->user->firstname}}</td>
                                             {{-- <td>{{$birthreg->user->lastname.', '.$birthreg->user->firstname.' - '.$birthreg->user->identitynumber}} --}}
                                             </td>
-                                            {{-- <td style="text-align: center">
-                                                <a href="{{ route('birthreg.show',$birthreg->id) }}"><span
-                                                        class="fa fa-eye fa-2x text-primary"></span></a>
-                                            </td> --}}
+                                            <td style="text-align: center">
+                                                <a href="#"><span
+                                                        class="fa fa-print fa-2x text-primary"></span></a>
+                                            </td>
 
                                             <td style="text-align: center">
                                                 {{-- @if ($birthreg->user->id==Auth::user()->id) --}}

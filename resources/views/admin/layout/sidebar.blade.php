@@ -40,7 +40,7 @@
       {{-- @if (Auth::user()->role->id==1||Auth::user()->role->id==3) --}}
 
       <li><a href="{{route('birthreg.index')}}"><i class="fa fa-tags"></i> Birth Registration</a></li>
-      <li><a href="{{route('nurse.index')}}"><i class="fa fa-users"></i> Nurses</a></li>
+      <li><a href="{{route('nurse.index')}}"><i class="fa fa-users"></i> Staff</a></li>
 
       {{-- @endif --}}
 
