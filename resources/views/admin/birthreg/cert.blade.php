@@ -10,23 +10,26 @@
 
     <body>
         <tbody class="table">
+            <div>
+            <img src="{{asset('image/logo.png')}}" alt="" class="logo">
+            <address></address>
+            </div>
             <caption>Birth Registration Certificate</caption>
-            
         <tbody>
             <hr>
             <tr>
-            <td>
-                <div>Cert # {{$birthreg->certnumber}}</div>
-                <div>Full Name : {{$birthreg->lastname.', '.$birthreg->firstname.' '.$birthreg->othername}}</div>
-                <div>Date of Birth : {{$birthreg->dob}}</div>
-                {{-- <div>Cert # {{$birthreg->certnumber}}</div>
-                <div>Cert # {{$birthreg->certnumber}}</div>
-                <div>Cert # {{$birthreg->certnumber}}</div>
-                <div>Cert # {{$birthreg->certnumber}}</div>
-                <div>Cert # {{$birthreg->certnumber}}</div> --}}
-            </td> 
+                <td>
+                    <div>Cert # {{$birthreg->certnumber}}</div>
+                    <div>Full Name : {{$birthreg->lastname.', '.$birthreg->firstname.' '.$birthreg->othername}}</div>
+                    <div>Date of Birth : {{$birthreg->dob}}</div>
+                    {{-- <div>Cert # {{$birthreg->certnumber}}</div>
+                    <div>Cert # {{$birthreg->certnumber}}</div>
+                    <div>Cert # {{$birthreg->certnumber}}</div>
+                    <div>Cert # {{$birthreg->certnumber}}</div>
+                    <div>Cert # {{$birthreg->certnumber}}</div> --}}
+                </td>
             </tr>
-            
+
         </tbody>
         </tbody>
 
